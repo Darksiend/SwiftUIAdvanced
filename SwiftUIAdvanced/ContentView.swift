@@ -47,13 +47,13 @@ struct ContentView: View {
                     )
                     
                     HStack(spacing: 12.0) {
-                        Image(systemName: "envelope.open.fill")
+                        Image(systemName: "key.fill")
                             .foregroundColor(.white)
                         TextField("Password", text: $password)
                             .colorScheme(.dark)
                             .foregroundColor(Color.white.opacity(0.7))
                             .autocapitalization(.none)
-                            .textContentType(.emailAddress)
+                            .textContentType(.password)
                     }
                     .frame(height: 52)
                     .overlay(
@@ -66,7 +66,36 @@ struct ContentView: View {
                         .cornerRadius(16.0)
                         .opacity(0.8)
                     )
+                    Button(action: {
+                        print("Sign Up")
+                    }, label: {
+                        Text("Sigh Up")
+                    })
                     
+                    Text("By clicking on Sign Up you agree our Terms of service")
+                        .font(.footnote)
+                        .foregroundColor(Color.white.opacity(0.7))
+                    
+                    Rectangle()
+                        .frame(height: 1)
+                        .foregroundColor(Color.white.opacity(0.1))
+                    
+                    VStack(alignment: .leading, spacing: 16, content: {
+                        Button {
+                            print("Switch to sign in")
+                        } label: {
+                            HStack(spacing: 4) {
+                                Text("Already have an account?")
+                                    .font(.footnote)
+                                    .foregroundColor(Color.white.opacity(0.7))
+                                Text("Sign In!")
+                                    .font(.footnote)
+                                    .bold()
+                            }
+                        }
+
+                    })
+
                 }
                 .padding(20)
             }
