@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B9F5FE82756A21100AF1272 /* GradientText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F5FE72756A21100AF1272 /* GradientText.swift */; };
+		9B9F5FEA2756A4CC00AF1272 /* GradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9F5FE92756A4CC00AF1272 /* GradientButton.swift */; };
 		9BA16040273CF838006C2313 /* SwiftUIAdvancedApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA1603F273CF838006C2313 /* SwiftUIAdvancedApp.swift */; };
 		9BA16042273CF838006C2313 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BA16041273CF838006C2313 /* ContentView.swift */; };
 		9BA16044273CF839006C2313 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BA16043273CF839006C2313 /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B9F5FE72756A21100AF1272 /* GradientText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientText.swift; sourceTree = "<group>"; };
+		9B9F5FE92756A4CC00AF1272 /* GradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientButton.swift; sourceTree = "<group>"; };
 		9BA1603C273CF838006C2313 /* SwiftUIAdvanced.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIAdvanced.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BA1603F273CF838006C2313 /* SwiftUIAdvancedApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIAdvancedApp.swift; sourceTree = "<group>"; };
 		9BA16041273CF838006C2313 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,6 +44,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B9F5FE62756A1EB00AF1272 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9B9F5FE72756A21100AF1272 /* GradientText.swift */,
+				9B9F5FE92756A4CC00AF1272 /* GradientButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9BA16033273CF838006C2313 = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +72,7 @@
 		9BA1603E273CF838006C2313 /* SwiftUIAdvanced */ = {
 			isa = PBXGroup;
 			children = (
+				9B9F5FE62756A1EB00AF1272 /* Views */,
 				9BA16052273CF8B8006C2313 /* Helpers */,
 				9BA1603F273CF838006C2313 /* SwiftUIAdvancedApp.swift */,
 				9BA16041273CF838006C2313 /* ContentView.swift */,
@@ -159,6 +173,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BA16055273CF8B8006C2313 /* VisualEffectBlur.swift in Sources */,
+				9B9F5FEA2756A4CC00AF1272 /* GradientButton.swift in Sources */,
+				9B9F5FE82756A21100AF1272 /* GradientText.swift in Sources */,
 				9BA16049273CF839006C2313 /* Persistence.swift in Sources */,
 				9BA1604C273CF839006C2313 /* SwiftUIAdvanced.xcdatamodeld in Sources */,
 				9BA16056273CF8B8006C2313 /* ImagePicker.swift in Sources */,

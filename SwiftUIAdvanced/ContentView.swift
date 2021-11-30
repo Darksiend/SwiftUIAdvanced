@@ -66,11 +66,9 @@ struct ContentView: View {
                         .cornerRadius(16.0)
                         .opacity(0.8)
                     )
-                    Button(action: {
-                        print("Sign Up")
-                    }, label: {
-                        Text("Sigh Up")
-                    })
+                    GradientButton()
+                      
+                     
                     
                     Text("By clicking on Sign Up you agree our Terms of service")
                         .font(.footnote)
@@ -121,3 +119,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
