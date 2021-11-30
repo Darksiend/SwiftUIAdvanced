@@ -11,6 +11,8 @@ struct ContentView: View {
 
     @State private var email: String =  ""
     @State private var password: String = ""
+    @State private var editingEmailTextfield: Bool = false
+    @State private var editingPasswordTextfield: Bool = false
     var body: some View {
         ZStack {
             Image("background-3")
@@ -26,9 +28,13 @@ struct ContentView: View {
                         .font(.subheadline)
                         .foregroundColor(Color.white.opacity(0.7))
                     HStack(spacing: 12.0) {
-                        Image(systemName: "envelope.open.fill")
-                            .foregroundColor(.white)
-                        TextField("Email", text: $email)
+                        TextfieldIcon(iconName: "envelope.open.fill", currentlyEditing: $editingEmailTextfield)
+                        TextField("Email", text: $email) { isEditing in
+                            
+                            editingEmailTextfield = isEditing
+                            editingPasswordTextfield = false
+                            
+                        }
                             .colorScheme(.dark)
                             .foregroundColor(Color.white.opacity(0.7))
                             .autocapitalization(.none)
@@ -47,9 +53,12 @@ struct ContentView: View {
                     )
                     
                     HStack(spacing: 12.0) {
-                        Image(systemName: "key.fill")
-                            .foregroundColor(.white)
-                        TextField("Password", text: $password)
+                        TextfieldIcon(iconName: "key.fill", currentlyEditing: $editingPasswordTextfield)
+                        TextField("Password", text: $password) { isEditing in
+                            editingPasswordTextfield = isEditing
+                            editingEmailTextfield = false
+                            
+                        }
                             .colorScheme(.dark)
                             .foregroundColor(Color.white.opacity(0.7))
                             .autocapitalization(.none)
@@ -66,6 +75,12 @@ struct ContentView: View {
                         .cornerRadius(16.0)
                         .opacity(0.8)
                     )
+                    
+                    .onTapGesture {
+                        editingPasswordTextfield = true
+                        editingEmailTextfield = false
+                    }
+                    
                     GradientButton()
                       
                      
