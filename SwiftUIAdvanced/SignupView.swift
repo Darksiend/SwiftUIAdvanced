@@ -17,8 +17,10 @@ struct SignupView: View {
     @State private var editingPasswordTextfield: Bool = false
     @State private var emailIconBounce: Bool = false
     @State private var passwordIconBounce: Bool = false
-    @State private var showProfileView: Bool = true // !!!
+    @State private var showProfileView: Bool = false // !!!
     @State private var signupToggle: Bool = true
+    @State private var rotationAngle = 0.0
+    
     private let  generator = UISelectionFeedbackGenerator()
     
     var body: some View {
@@ -143,6 +145,7 @@ struct SignupView: View {
                         Button {
                             withAnimation(.easeInOut(duration: 0.7)) {
                                 signupToggle.toggle()
+                                self.rotationAngle += 180
                             }
                             
                         } label: {
@@ -171,11 +174,23 @@ struct SignupView: View {
                             }
                         }
                         
+                        Rectangle()
+                            .frame(height: 1)
+                            .foregroundColor(.white.opacity(0.1))
+                        Button(action: {
+                            print("Sign with Apple")
+                        }, label: {
+                            Text("Button")
+                                .frame(height: 50)
+                                .cornerRadius(16)
+                        })
+                        
                     }
                     
                 }
                 .padding(20)
             }
+            .rotation3DEffect(Angle(degrees: self.rotationAngle), axis: (x: 0.0, y: 1.0, z: 0.0))
             .background(
                 RoundedRectangle(cornerRadius: 30)
                     .stroke(Color.white.opacity(0.2))
@@ -185,6 +200,8 @@ struct SignupView: View {
             )
             .cornerRadius(30)
             .padding(.horizontal)
+            .rotation3DEffect(Angle(degrees: self.rotationAngle), axis: (x: 0.0, y: 1.0, z: 0.0))
+
         }
         .fullScreenCover(isPresented: $showProfileView) {
             ProfileView()
@@ -192,7 +209,8 @@ struct SignupView: View {
     }
     
     func signup() {
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+        if signupToggle {
+            Auth.auth().createUser(withEmail: email, password: password) { result, error in
             guard error == nil else {
                 print(error!.localizedDescription)
                 return
@@ -200,6 +218,15 @@ struct SignupView: View {
             
             print("User Signed Up!")
             
+        }}
+        else {
+            Auth.auth().signIn(withEmail: email, password: password) { result, error in
+                guard error == nil else {
+                    print(error!.localizedDescription)
+                    return
+                }
+                print("User is Signed In!")
+            }
         }
     }
     
